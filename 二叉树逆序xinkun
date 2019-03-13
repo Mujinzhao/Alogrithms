@@ -19,6 +19,19 @@ public class MainTest {
           right = null;
        }
     }
+    
+    
+    public int Find(int x,int len,int[] num){  //二分查找  如果找不到则返回改数应该插入的位置
+        int low = 0;
+        int heigh = len-1;
+        while(low<=heigh){
+            int mid = (low+heigh)>>1;
+            if(num[mid] > x) heigh = mid - 1;
+            if(num[mid] < x) low = mid + 1;
+            if(num[mid]  == x) return mid;
+        }
+        return low;
+    }
 
     public void Reverse(TreeNode head){  //中序遍历 交换左右子树
         if(head == null) return ;
